@@ -1,0 +1,22 @@
+template <typename> class List; // required forward declaration
+
+template <typename T>
+class ListIterator
+{
+
+  friend class List<T>;
+
+  public:
+    ListIterator();
+    bool hasNext() const;
+    bool hasPrevious() const;
+    T &next() throw ( NoSuchObject );
+    T &previous() throw ( NoSuchObject );
+    void set( const T & ) const throw ( NoSuchObject );
+    void printInternal() const;
+
+  private:
+    Node<T> *current;
+    bool before;
+
+}; // ListIterator class
